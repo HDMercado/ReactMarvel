@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../assets/images/logo.png';
+import { NavLink } from 'react-router-dom';
 
 
 class Header extends Component {
@@ -14,31 +15,13 @@ class Header extends Component {
 
                     <nav id="menu">
                         <ul>
-                            <li>
-                                <a href="#">Torneo</a>
-                            </li>
-                            <li>
-                                <a href="#">Heroes</a>
-                            </li>
-                            <li>
-                                <a href="#">Comics</a>
-                            </li>
-                            <li>
-                                <a href="#">Series</a>
-                            </li>
-                            <li>
-                                <a href="*">Eventos</a>
-                            </li>
-                            {/*
-                                            <li>
-                          <NavLink exact to = "/" activeClassName="active">Inicio</NavLink>
-                        </li>
+
                         <li>
                             <NavLink exact to = "/torneo" activeClassName="active">Torneo</NavLink>
                         </li>
                         <li>
-                            <NavLink exact to = "/heroes" activeClassName="active">Heroes</NavLink>
-                        </li>
+                            <NavLink exact to = "/Personajes" activeClassName="active">Personajes</NavLink>
+                        </li>{/*
                         <li>
                             <NavLink exact to = "/comics" activeClassName="active">Comics</NavLink>
                         </li>
@@ -48,7 +31,8 @@ class Header extends Component {
                         <li>
                             <NavLink exact to = "/eventos" activeClassName="active">Eventos</NavLink>
                         </li>  
-                    */}
+                         */}
+
 
                         </ul>
                     </nav>

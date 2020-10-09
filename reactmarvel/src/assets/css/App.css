@@ -1,22 +1,22 @@
-
-
 body{
     text-align: center;
     margin: 0px;
     padding: 0px;
     /*FUENTES*/
-    font-family: -apple-system, BlinkMacSystemFont, 'Bahnschrift SemiCondensed', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     -webkit-font-smootring: antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     -webkit-font-smootring: antialiased;/*suaviza fuente*/
      -moz-font-smootring: antialiased;
      -moz-osx-font-smootring: antialiased;
- }
+  }
  
  #header {
-     height: 115px;
+    font-family: 'Bahnschrift Condensed';
+     height: 110px;
      width: 100%;
      background: white;
      border-bottom: 1px solid #ccc;
-     border-top: 3px solid rgb(221, 38, 14);
+     border-top: 4px solid rgb(221, 38, 14);
+
  }
  
  .center{
@@ -53,7 +53,8 @@ body{
  #menu{
      width: 70%;
      float:right;
-     font-size: 18px;
+     font-size: 24px;
+     margin-top: 10px;
  }
  
  #menu ul{
@@ -100,17 +101,19 @@ body{
  
  #slider{
      width: 100%;
-     height: 350px;
+     height: 300px;
      color: white;
      text-shadow: 0px 0px 5px #444;
      background-image: url("../images/hojas.png");
  }
 
  #slider h1{
+    font-family: 'Bahnschrift Condensed';
      margin-top: 0.2px;
      padding: 0px;
-     padding-top: 130px;
+     padding-top: 110px;
      text-align: center;
+     font-size: 60px;
  }
  
  .btn-white{
@@ -130,6 +133,7 @@ body{
      margin-top: 40px;
      border-radius: 4px;
      transition: 300ms all;
+     font-family: 'Bahnschrift Condensed';
  }
  
  .btn-white:hover{
@@ -177,12 +181,14 @@ body{
      padding-bottom: 10px;
      margin-bottom: 10px;
      border-bottom: 3px solid #eee;
+     font-family: 'Bahnschrift Condensed';
  }
  
  .sidebar-item .btn{
      margin: 0px auto;
      margin-top: 10px;
  }
+
  
  .btn{
     display: block;
@@ -198,6 +204,9 @@ body{
     border: none;
     cursor:pointer;
     text-align: center;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    font-family: 'Bahnschrift Condensed';
  }
  
  .btn-success{
@@ -223,12 +232,25 @@ body{
     transition: all 300ms;
     opacity: 0.7;
 }
- 
+.btn-center{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.tableBox{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    font-family: 'Bahnschrift Condensed';
+}
+
 .buttons{
     margin-top: 30px;
 }
  .mid-form{
-     width: 50%;
+     width: 75%;
      margin: 0px auto;
  }
  
@@ -239,16 +261,19 @@ body{
      margin-top: 10px;
      margin-bottom: 5px;
      font-size: 17px;
+     font-family: 'Bahnschrift Condensed';
  }
  
  input[type="text"],
  input[type="file"],
  textarea{
-     width: 100%;
-     min-height: 30px;
+     width: 50px;
+     min-height: 40px;
      border: 1px solid #ccc;
      padding: 3px;
      margin-bottom: 5px;
+     margin-left: 15px;
+     margin-right: 15px;
      transition: 300ms all;
  }
  
@@ -265,16 +290,8 @@ body{
  
  input[type="text"]:focus,
  textarea:focus{
-     box-shadow: 0px 0px 5px #eee inset;
- }
- 
- textarea{
-     width: 100%;
-     height: 150px;
-     min-width: 100%;
-     max-width: 100%;
-     min-height: 150px;
-     max-height: 300px;
+    width: 50px;
+    box-shadow: 0px 0px 5px #eee inset;
  }
  
  .radibuttons{
@@ -345,9 +362,13 @@ body{
  }
  
  .subheader{
+     margin-top: 50px;
+     margin-bottom: 25px;
      font-size: 38px;
      border-bottom: 1px solid #eee;
      padding-bottom: 10px;
+     text-align: center;
+     font-family: 'Bahnschrift Condensed';
  }
  
  .article-detail .image-wrap{
@@ -380,7 +401,7 @@ body{
  /*Desde la anchura 0px hasta la anchura 963px de pantalla*/
  @media (max-width: 1314px){
      .center{
-         width: 95%;
+         width: 85%;
      }
      #menu ul{
          width: auto;
@@ -389,9 +410,9 @@ body{
  
  @media (max-width: 881px){
      #logo{
-         width: 265px;
+         width: 270px;
      }
- 
+
      #menu{
          width: auto;
      }
@@ -433,10 +454,11 @@ body{
      #slider h1{
          padding-top: 115px;
          font-size: 25px;
+         font-family: 'Bahnschrift Condensed';
      }
  
      .mid-form{
-         width: 70%;
+         width: 75%;
      }
  }
  
@@ -466,6 +488,7 @@ body{
      #slider h1{
          font-size: 19px;
          padding-top: 30px;
+         font-family: 'Bahnschrift Condensed';
      }
  
      #slider .btn-white{
