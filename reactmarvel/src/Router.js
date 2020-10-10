@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Error from './components/Error.js';
-import Personajes from './components/Personajes';
+import PagPersonajes from './components/PagPersonajes';
 import Personaje from './components/Personaje';
 import Torneo from './components/Torneo';
 
@@ -19,8 +19,9 @@ class Router extends Component {
                 <Switch>
                     <Route exact path="/" component={Torneo} />
                     <Route exact path="/torneo" component={Torneo} />
-                    <Route exact path="/personajes" component={Personajes} />
-                    <Route exact path="/personaje" component={Personaje}/>
+                    <Route exact path="/personajes" component={PagPersonajes} />
+                    <Route exact path="/personajes/personaje/:id" component={Personaje}/>
+                    
                     {/*<Route exact path="/personajes/busqueda/:search" component={Search} />*/}
                     {/*<Route exact path="/redirect/:search" render={
                         (props) =>{

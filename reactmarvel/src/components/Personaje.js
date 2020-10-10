@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
+import Global from '../Global';
+
 class Personaje extends Component {
+    url = Global.url;
 
     render(){
         {/*const pelicula = this.props.pelicula;

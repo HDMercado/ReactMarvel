@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../assets/images/logo.png';
 import { NavLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -10,7 +10,9 @@ class Header extends Component {
                 <div className="center">
 
                     <div id="logo">
-                        <img src={logo} className="app-logo" alt="Logotipo" />
+                        <Link exact to = "/torneo">
+                            <img src={logo} className="app-logo" alt="Logotipo" />
+                        </Link> 
                     </div>
 
                     <nav id="menu">
@@ -21,19 +23,7 @@ class Header extends Component {
                         </li>
                         <li>
                             <NavLink exact to = "/Personajes" activeClassName="active">Personajes</NavLink>
-                        </li>{/*
-                        <li>
-                            <NavLink exact to = "/comics" activeClassName="active">Comics</NavLink>
                         </li>
-                        <li>
-                            <NavLink exact to = "/series" activeClassName="active">Series</NavLink>
-                        </li>
-                        <li>
-                            <NavLink exact to = "/eventos" activeClassName="active">Eventos</NavLink>
-                        </li>  
-                         */}
-
-
                         </ul>
                     </nav>
 

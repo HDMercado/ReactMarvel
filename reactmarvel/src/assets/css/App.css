@@ -23,7 +23,7 @@ body{
      width: 75%;
      margin: 0px auto;
  }
- 
+
  .clearfix{
      clear:both;
      float:none;
@@ -323,17 +323,18 @@ body{
  }
  
  .article-item .image-wrap {
-     width: 130px;
-     height: 130px;
+     width: 150px;
+     height: 150px;
      overflow:hidden;
      float:left;
-     margin-right: 15px;
+     margin-right: 35px;
      border: 1px solid #ccc;
  }
  
  .article-item .image-wrap img{
-     height: 100%;
-     text-align: center;
+    width: 100%;
+    text-align: center;
+
  }
  
  .article-item h2{

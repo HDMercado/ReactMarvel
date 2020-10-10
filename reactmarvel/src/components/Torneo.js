@@ -6,13 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class Torneo extends Component {
     
     cantidadRef = React.createRef();
-    state = {
-        peleas: [],
-        status: null
-    };
+
     recibirCantidad = (e) => {
-        e.preventDefault(); 
-        console.log(this.cantidadRef.current.value);
+        e.preventDefault();
     }
 
     render() {
@@ -24,7 +20,7 @@ class Torneo extends Component {
                     size="slider"
                 />
                 <div className="center">
-                    <div id="mid-form" className="personajes">
+                    <div id="mid-form" className="article-item">
                         <h2 className="subheader">Listado de personajes</h2>
                         {/*Crear componente de personajes*/}
 
