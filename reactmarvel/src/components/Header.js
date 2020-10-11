@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../assets/images/logo.png';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -10,9 +9,9 @@ class Header extends Component {
                 <div className="center">
 
                     <div id="logo">
-                        <Link exact to = "/torneo">
+                        <NavLink exact to = "/torneo">
                             <img src={logo} className="app-logo" alt="Logotipo" />
-                        </Link> 
+                        </NavLink> 
                     </div>
 
                     <nav id="menu">

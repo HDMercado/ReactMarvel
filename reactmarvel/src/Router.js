@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -21,16 +20,6 @@ class Router extends Component {
                     <Route exact path="/torneo" component={Torneo} />
                     <Route exact path="/personajes" component={PagPersonajes} />
                     <Route exact path="/personajes/personaje/:id" component={Personaje}/>
-                    
-                    {/*<Route exact path="/personajes/busqueda/:search" component={Search} />*/}
-                    {/*<Route exact path="/redirect/:search" render={
-                        (props) =>{
-                            var search = props.match.params.search;
-                            return (
-                                <Redirect to = {'/blog/busqueda/' + search}></Redirect>
-                            );
-                        }
-                    }/>*/}
                     <Route component={Error} />
 
                 </Switch>

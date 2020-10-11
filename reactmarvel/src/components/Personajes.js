@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Global from '../Global';
 import axios from 'axios';
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 class Personajes extends Component {
     url1 = Global.url1;
     url2 = Global.url2;
@@ -27,13 +29,12 @@ class Personajes extends Component {
     }
 
     render() {
-
+        
         if (this.state.personajes.length >= 1) {
             var listpersonajes = this.state.personajes.map((personaje) => {
                 return (
-                    <div className="center">
-                    <div id="mid-form" className="article-item">
-                    <article className="article-item" id="personaje-template" key={personaje._id}>
+                    <article className="article-item" id="personaje-template" key={personaje.id}>
+                    
                         <div className="image-wrap">
                             <Link to={'/personajes/personaje/' + personaje.id} >
                                 <img src={personaje.thumbnail.path + "." + personaje.thumbnail.extension} alt={personaje.name} />
@@ -44,10 +45,6 @@ class Personajes extends Component {
 
                         <div className="clearfix"></div>
                     </article>
-                    </div>
-                    </div>
-
-
 
                 );
             });
@@ -64,9 +61,8 @@ class Personajes extends Component {
             );
         } else {
             return (
-                <div id="personajes">
+                <div  className = "center "id="personajes">
                     <h2 className="subheader">Cargando...</h2>
-                    <p>Espere un momento</p>
                 </div>
             );
         }

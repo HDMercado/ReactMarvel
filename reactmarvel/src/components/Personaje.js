@@ -1,26 +1,73 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import React, { Component } from 'react';
 import Global from '../Global';
+import Slider from './Slider';
 
 class Personaje extends Component {
-    url = Global.url;
+    url1 = Global.url1;
+    url2 = Global.url2;
 
-    render(){
-        {/*const pelicula = this.props.pelicula;
-        const {titulo, image} = this.props.pelicula;
-        */}
-         return (
-            <article className="article-item" id="article-template">
-            <div className="image-wrap">
-                < img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/433ybv_com_crd_01.jpg" alt="black widow" />
-            </div>
-            <h2>Black Widow</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <Link to="/personaje">Leer más</Link>
-            <div className="clearfix"></div>
-        </article>
-         );
+    state = {
+        personaje: {},
+        status: null
+    };
+
+    componentWillMount() {
+        this.getPersonaje();
+    }
+
+    getPersonaje = () => {
+        var id = this.props.match.params.id;
+        axios.get(this.url1 + "characters/" + id + this.url2)
+            .then(res => {
+                this.setState({
+                    personaje: res.data.data.results,
+                    status: 'success'
+                });
+            });
+    }
+    render() {
+        
+        var personaje = this.state.personaje;
+        console.log(personaje);
+        return (
+            <React.Fragment>
+                <Slider
+                    title={personaje.name}
+                    size="slider"
+                />
+                <div className="center">
+                    <section id="content">
+
+                        {this.state.personaje &&
+                            <article className="article-item article-detail" id="article-template">
+                                <div className="image-wrap">
+                                    <img src={this.url + "get-image/" + personaje.image} alt={personaje.name} />
+                                </div>
+                                <h1 className="subheader">{personaje.name}</h1>
+                                <p>
+                                    {personaje.description}
+                                </p>
+                                <div className="clearfix"></div>
+                            </article>
+                        }
+                        {!personaje && this.state.status === 'success' &&
+                            <div id="article">
+                                <h2 className="subheader"> El artículo no exite</h2>
+
+                            </div>
+                        }
+                        {!personaje == null &&
+                            <div id="article">
+                                <h2 className="subheader">Cargando...</h2>
+                            </div>
+                        }
+
+                    </section>
+                    <div className="clearfix"></div>
+                </div>
+            </React.Fragment>
+        );
     }
 }
 
