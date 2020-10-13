@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Global from '../Global';
@@ -29,22 +30,23 @@ class Personajes extends Component {
     }
 
     render() {
-        
+
         if (this.state.personajes.length >= 1) {
             var listpersonajes = this.state.personajes.map((personaje) => {
                 return (
-                    <article className="article-item" id="personaje-template" key={personaje.id}>
-                    
-                        <div className="image-wrap">
+                    <div className="card" id="personaje-template" key={personaje.id}>
+
+                        <div className="card-img-top">
                             <Link to={'/personajes/personaje/' + personaje.id} >
                                 <img src={personaje.thumbnail.path + "." + personaje.thumbnail.extension} alt={personaje.name} />
                             </Link>
                         </div>
-                        <h2 className="card-text">{personaje.name}</h2>
-                        <Link to={'/personajes/personaje/' + personaje.id} >Leer más</Link>
-
+                        <h2 className="card-title">{personaje.name}</h2>
+                        <div className="card-center">
+                            <Link to={'/personajes/personaje/' + personaje.id} ><input type="submit" value="Ver más" className="btn btn-danger" /></Link>
+                        </div>
                         <div className="clearfix"></div>
-                    </article>
+                    </div>
 
                 );
             });
@@ -61,7 +63,7 @@ class Personajes extends Component {
             );
         } else {
             return (
-                <div  className = "center "id="personajes">
+                <div className="center " id="personajes">
                     <h2 className="subheader">Cargando...</h2>
                 </div>
             );

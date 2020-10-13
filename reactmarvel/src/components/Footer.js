@@ -4,9 +4,7 @@ const Footer = () => {
     return (
         <footer id="footer">
         <div className="center">
-            <p>
-                &copy; Marvel VS.
-            </p>
+            <p>&copy; MARVEL VS.</p>
         </div>
     </footer>
 

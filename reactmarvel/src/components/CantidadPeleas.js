@@ -9,7 +9,6 @@ class CantidadPeleas extends Component {
         cantidadPeleas: 1
     };
 
-
     numeroPeleas = (e) => {
         e.preventDefault();
         var cantidadPeleas = this.cantidadRef;
