@@ -92,7 +92,7 @@ class Torneo extends Component {
                             <label htmlFor="peleas">Ingrese la cantidad de peleas para la velada:</label>
                             <input type="text" name="peleas" ref={this.cantidadRef} />
                             <input type="submit" value="Crear" className="btn btn-danger" />
-                                {this.validator.message('peleas', this.state.cantidadPeleas, 'required|numeric|min:0,max:10,num')}
+                                {this.validator.message('peleas', this.state.cantidadPeleas, 'required|numeric|min:0,num|max:10,num')}
                             </form>
                         {this.state.peleador_a.length > 0 &&
                             <div className="center">
