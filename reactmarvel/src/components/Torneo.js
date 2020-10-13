@@ -5,7 +5,6 @@ import Peleador from './Peleador';
 import Global from '../Global';
 import axios from 'axios';
 import SimpleReactValidator from 'simple-react-validator';
-
 class Torneo extends Component {
     url1 = Global.url1;
     url2 = Global.url2;
@@ -16,7 +15,10 @@ class Torneo extends Component {
         personajes: [],
         peleador_a: [],
         peleador_b: [],
-        status: null,
+        peleadores: [],
+        victorias: [],
+        status: null
+
     }
 
     componentWillMount() {
@@ -24,8 +26,8 @@ class Torneo extends Component {
             messages: {
                 required: '*Este campo es requerido',
                 numeric: '*Ingrese un caracter numerico positivo menor a 10',
-                min:'*Ingrese un caracter numero positivo menor a 10',
-                max:'*Ingrese un caracter numero positivo menor a 10' 
+                min: '*Ingrese un caracter numero positivo menor a 10',
+                max: '*Ingrese un caracter numero positivo menor a 10'
 
             }
         });
@@ -77,9 +79,33 @@ class Torneo extends Component {
         });
 
     }
+    ranking = () => {
+        var peleador_a = this.state.peleador_a;
+        var peleador_b = this.state.peleador_b;
+        var victorias = [];
+        var peleadores = peleador_a.concat(peleador_b);
+
+        //Cantidad de victorias
+        for (let i = 0; i < peleadores.length; i++) {
+            victorias[i] = peleadores.length / 2 - i;
+            if (victorias[i] < 0) {
+                victorias[i] = 0;
+            }
+        };
+        this.setState({
+            peleadores: peleadores,
+            victorias: victorias
+        });
+    }
+
+
+    reload = () => {
+        window.location.replace('');
+    }
+
+
 
     render() {
-
         return (
             <React.Fragment>
                 <Slider
@@ -87,13 +113,15 @@ class Torneo extends Component {
                 />
                 <div className="center">
                     <div id="mid-form" className="article-item">
-                        <h1></h1>
+
                         <form className="mid-form" onSubmit={this.numeroPeleas} onChange={this.numeroPeleas}>
+                            <p></p>
                             <label htmlFor="peleas">Ingrese la cantidad de peleas para la velada:</label>
                             <input type="text" name="peleas" ref={this.cantidadRef} />
-                            <input type="submit" value="Crear" className="btn btn-danger" />
-                                {this.validator.message('peleas', this.state.cantidadPeleas, 'required|numeric|min:0,num|max:10,num')}
-                            </form>
+                            <input type="submit" value="Crear" className="btn btn-danger" onClick={this.numeroPeleas} />
+                            {this.validator.message('peleas', this.state.cantidadPeleas, 'required|numeric|min:1,num|max:10,num')}
+                        </form>
+                        {/*Tabla inicial*/}
                         {this.state.peleador_a.length > 0 &&
                             <div className="center">
                                 <div className="mid-form">
@@ -105,9 +133,7 @@ class Torneo extends Component {
                                                     <th></th>
                                                 </tr>
                                             </thead>
-
                                             <tbody>
-
                                                 {
                                                     this.state.peleador_a.map((peleador_a, i) => {
                                                         return (
@@ -115,7 +141,8 @@ class Torneo extends Component {
                                                                 <Peleador key={"peleadorA" + i} peleador={peleador_a} />
                                                             </tr>
                                                         )
-                                                    })}
+                                                    })
+                                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -141,8 +168,45 @@ class Torneo extends Component {
                                         </table>
                                     </div>
                                     <div className="clearfix"></div>
+
+                                </div>
+                                <div className="btn-center">
+                                    <button type="submit" value="Comenzar" className="btn btn-danger" onClick={this.ranking}>Comenzar</button>
+                                </div>
+                            </div>
+
+                        }
+                        {this.state.peleadores.length > 0 &&
+                            <div className="center">
+                                <div className="mid-form">
+                                    <div className="tableBox">
+                                        <table className="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Posición</th>
+                                                    <th>Peleador</th>
+                                                    <th>Victorias</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {this.state.peleadores.map((peleadores, i) => {
+                                                    return (
+                                                        <tr>
+                                                            <td>{i}</td>
+                                                            <Peleador key={"peleadores" + i} peleador={peleadores} />
+                                                            <td>
+                                                                {this.state.victorias[i]}
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className="clearfix"></div>
                                     <div className="btn-center">
-                                        <input type="submit" value="Comenzar" className="btn btn-danger" />
+                                        <input type="submit" value="Comenzar" className="btn btn-danger" onClick={this.reload}>Refrescar</input>
                                     </div>
                                 </div>
                             </div>
