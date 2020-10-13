@@ -137,7 +137,7 @@ class Torneo extends Component {
                                                 {
                                                     this.state.peleador_a.map((peleador_a, i) => {
                                                         return (
-                                                            <tr>
+                                                            <tr key={"peleadorA" + i}>
                                                                 <Peleador key={"peleadorA" + i} peleador={peleador_a} />
                                                             </tr>
                                                         )
@@ -157,7 +157,7 @@ class Torneo extends Component {
                                             <tbody>
                                                 {this.state.peleador_b.map((peleador_b, i) => {
                                                     return (
-                                                        <tr>
+                                                        <tr key={"peleadorB" + i}>
                                                             <Peleador key={"peleadorB" + i} peleador={peleador_b} />
                                                         </tr>
                                                     )
@@ -191,7 +191,7 @@ class Torneo extends Component {
                                             <tbody>
                                                 {this.state.peleadores.map((peleadores, i) => {
                                                     return (
-                                                        <tr>
+                                                        <tr key={"peleadores" + i}>
                                                             <td>{i}</td>
                                                             <Peleador key={"peleadores" + i} peleador={peleadores} />
                                                             <td>
@@ -206,7 +206,7 @@ class Torneo extends Component {
                                     </div>
                                     <div className="clearfix"></div>
                                     <div className="btn-center">
-                                        <input type="submit" value="Comenzar" className="btn btn-danger" onClick={this.reload}>Refrescar</input>
+                                        <input type="submit" value="Comenzar" className="btn btn-danger" onClick={this.reload}/>
                                     </div>
                                 </div>
                             </div>
