@@ -505,6 +505,12 @@ body{
          font-size: 25px;
          font-family: 'Bahnschrift Condensed';
      }
+.validador{
+
+        font-size: 10px;
+        font-family: 'Bahnschrift Condensed';
+        color: #f13e3e !important;
+    }
  
      .mid-form{
          width: 75%;

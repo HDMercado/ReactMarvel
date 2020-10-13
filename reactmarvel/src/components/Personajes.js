@@ -43,7 +43,8 @@ class Personajes extends Component {
                         </div>
                         <h2 className="card-title">{personaje.name}</h2>
                         <div className="card-center">
-                            <Link to={'/personajes/personaje/' + personaje.id} ><input type="submit" value="Ver más" className="btn btn-danger" /></Link>
+                            {/*<Link to={'/personajes/personaje/' + personaje.id} ><input type="submit" value="Ver más" className="btn btn-danger" /></Link>*/}
+                            <Link to={personaje.urls.url} ><input type="submit" value="Ver más" className="btn btn-danger" /></Link>
                         </div>
                         <div className="clearfix"></div>
                     </div>
